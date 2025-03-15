@@ -82,6 +82,7 @@
             this.picBoxImc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxImc.TabIndex = 20;
             this.picBoxImc.TabStop = false;
+
             // 
             // lblIdadeCmb
             // 
@@ -218,7 +219,6 @@
             this.chkMasculino.TabIndex = 4;
             this.chkMasculino.Text = "Masculino";
             this.chkMasculino.UseVisualStyleBackColor = true;
-            
             // 
             // label2
             // 
