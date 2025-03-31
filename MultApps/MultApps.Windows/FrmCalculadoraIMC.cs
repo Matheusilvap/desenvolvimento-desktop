@@ -46,7 +46,7 @@ namespace MultApps.Windows
             {
                 #region Adulto Masculino
 
-                //PRIMEIRO PASSO OBTER OS VALORES
+                //PRIMEIRO PASSA OBTER OS VALORES
                 var peso = double.Parse(txtPeso.Text);
                 var altura = double.Parse(txtAltura.Text);
 
@@ -177,6 +177,8 @@ namespace MultApps.Windows
 
             }
         }
+
+
     }
 }
 
