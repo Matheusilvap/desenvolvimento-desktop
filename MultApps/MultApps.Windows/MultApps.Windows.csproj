@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAçai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAçai.Designer.cs">
+      <DependentUpon>FrmAçai.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClassificacaoImc.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -68,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAçai.resx">
+      <DependentUpon>FrmAçai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCalculadoraIMC.resx">
       <DependentUpon>FrmCalculadoraIMC.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +91,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -96,6 +106,26 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Açai.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paçoca.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banana.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leite em pó.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leite condensado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\granulado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Morango.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
