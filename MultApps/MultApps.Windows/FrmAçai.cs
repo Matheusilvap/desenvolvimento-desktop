@@ -4,25 +4,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultApps.Windows
 {
-    public partial class principal : Form
+    public partial class FrmAçai : Form
     {
-        public principal()
+        public FrmAçai()
         {
             InitializeComponent();
-        }
-
-        private void principal_Load(object sender, EventArgs e)
-        {
-            var form = new FrmAçai();
-            form.MdiParent = this;
-            form.Show();
         }
 
     }
