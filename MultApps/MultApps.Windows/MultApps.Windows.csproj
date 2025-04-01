@@ -81,8 +81,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
 
-    <EmbeddedResource Include="FrmAçai.resx">
-      <DependentUpon>FrmAçai.cs</DependentUpon>
+
 
     <EmbeddedResource Include="FrmAposentadoria.resx">
       <DependentUpon>FrmAposentadoria.cs</DependentUpon>
