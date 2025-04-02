@@ -80,12 +80,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
-
-
     <EmbeddedResource Include="FrmAposentadoria.resx">
       <DependentUpon>FrmAposentadoria.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCalculadoraIMC.resx">
       <DependentUpon>FrmCalculadoraIMC.cs</DependentUpon>
@@ -136,6 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Morango.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CONTROLLER\MultApps.Controler\MultApps.Controler.csproj">
+      <Project>{94058098-4149-496b-af28-46ae6b7905a6}</Project>
+      <Name>MultApps.Controler</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
