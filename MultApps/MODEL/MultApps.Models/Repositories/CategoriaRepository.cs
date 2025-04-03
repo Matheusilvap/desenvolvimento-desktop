@@ -12,7 +12,7 @@ namespace MultApps.Models.Repository
 {
     public class CategoriaRepository
     {
-        public string ConnectionString = "Server=Workspace; Database = multapps_dev; Uid = root; Pwd = root";
+        public string ConnectionString = "Server=localhost; Database = multapps_dev; Uid = root; Pwd = root";
 
         public bool CadastrarCategoria(Categoria categoria)
         {

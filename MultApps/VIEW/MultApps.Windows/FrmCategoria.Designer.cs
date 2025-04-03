@@ -78,6 +78,10 @@
             // cbStatus
             // 
             this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Inativo",
+            "Ativo",
+            "Excluido"});
             this.cbStatus.Location = new System.Drawing.Point(298, 49);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 21);
