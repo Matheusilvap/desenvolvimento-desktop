@@ -1,12 +1,10 @@
 ﻿using Dapper;
 using MultApps.Models.Entities;
 using MySql.Data.MySqlClient;
-using System;
+using Org.BouncyCastle.Asn1.Crmf;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MultApps.Models.Repository
 {
@@ -27,6 +25,16 @@ namespace MultApps.Models.Repository
                 
                 var resultado = db.Execute(comandoSql, parametros);
                 return resultado > 0;
+            }
+        }
+
+        public List<Categoria> ListarTodasCategoria()
+        {
+          using (IDbConnection db = new MySqlConnection(ConnectionString))
+            {
+                var comandoSql = @"SELECT * FROM categoria";
+                var resultado = db.Query<Categoria>(comandoSql).ToList();
+                return resultado;
             }
         }
     }
