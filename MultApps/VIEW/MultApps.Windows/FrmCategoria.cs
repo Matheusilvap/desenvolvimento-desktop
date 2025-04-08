@@ -44,10 +44,39 @@ namespace MultApps.Windows
             CarregarTodasCategorias();
         }
 
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex == 0)
+            {
+                MessageBox.Show($"Houver um erro ao clicar 2 vezes sobre o Grid");
+            }
+
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+            var CategoriaId = (int)row.Cells[0].Value;
+
+            var categoriaRepository = new CategoriaRepository();
+            var categoria = categoriaRepository.obterCategoroaPorId(2);
+
+            if (categoria == null)
+            {
+                MessageBox.Show($"Categoria: #{CategoriaId} não foi encontrada");
+                return;
+            }
+
+            txtId.Text = categoria.Id.ToString();
+            txtNome.Text = categoria.Nome;
+            cbStatus.SelectedIndex = (int) categoria.Status;  
+            txtCriacao.Text = categoria.DataCriacao.ToString("dd/MM/yyyy HH:mm");
+            txtAlteracao.Text = categoria.DataAlteracao.ToString("dd/MM/yyyy HH:mm");
+        }
+
         private void CarregarTodasCategorias()
         {
+            
             var categoriaRepository = new CategoriaRepository();
             var listaDeCategorias = categoriaRepository.ListarTodasCategoria();
+            
 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.Columns.Clear();
@@ -87,7 +116,17 @@ namespace MultApps.Windows
             });
 
             dataGridView1.DataSource = listaDeCategorias;
+
             
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtId.Text = string.Empty;
+            txtNome.Text = string.Empty;
+            txtAlteracao.Text = string.Empty;
+            txtCriacao.Text = string.Empty;
+            cbStatus.SelectedIndex = -1;
         }
     }
 }
