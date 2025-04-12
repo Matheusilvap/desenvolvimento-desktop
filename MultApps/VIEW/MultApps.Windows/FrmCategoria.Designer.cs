@@ -1,6 +1,6 @@
 ﻿namespace MultApps.Windows
 {
-    partial class FrmCategoria
+    partial class btnDeletar
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -60,6 +61,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnLimpar);
             this.groupBox1.Controls.Add(this.cbStatus);
             this.groupBox1.Controls.Add(this.btnSalvar);
@@ -79,9 +81,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastrar nova categoria";
             // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(381, 110);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 23);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Deletar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(508, 110);
+            this.btnLimpar.Location = new System.Drawing.Point(491, 110);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(86, 23);
             this.btnLimpar.TabIndex = 24;
@@ -93,9 +106,9 @@
             // 
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
-            "Inativo",
+            "Excluido",
             "Ativo",
-            "Excluido"});
+            "Inativo"});
             this.cbStatus.Location = new System.Drawing.Point(298, 49);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 21);
@@ -200,8 +213,9 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(800, 191);
             this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // FrmCategoria
+            // btnDeletar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -210,7 +224,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
-            this.Name = "FrmCategoria";
+            this.Name = "btnDeletar";
             this.Text = "FrmCategoria";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -236,5 +250,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button button1;
     }
 }

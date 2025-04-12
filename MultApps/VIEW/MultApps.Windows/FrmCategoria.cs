@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace MultApps.Windows
 {
-    public partial class FrmCategoria : Form
+    public partial class btnDeletar : Form
     {
-        public FrmCategoria()
+        public btnDeletar()
         {
             InitializeComponent();
             CarregarTodasCategorias();
@@ -30,23 +30,44 @@ namespace MultApps.Windows
             categoria.Status = (StatusEnum)cbStatus.SelectedIndex;
 
 
-
             var CategoriaRepository = new CategoriaRepository ();
-            var resultado = categoriaRepository.CadastrarCategoria(categoria);
-            if (resultado)
+
+            if(string.IsNullOrEmpty(txtNome.Text))
             {
-                MessageBox.Show(text: "Categoria cadastrada com sucesso");
+                var resultado = categoriaRepository.CadastrarCategoria(categoria);
+                if (resultado)
+                {
+                    MessageBox.Show(text: "Categoria cadastrada com sucesso");
+                }
+                else
+                {
+                    MessageBox.Show(text: "Erro ao cadastrar categoria");
+                }
             }
+
             else
             {
-                MessageBox.Show(text: "Erro ao cadastrar categoria");
+               categoria.Id = int.Parse(txtId.Text);
+                var resultado = categoriaRepository.AtualizarCategoria(categoria);
+
+                if (resultado)
+                {
+                    MessageBox.Show("Categoria atualizada com sucesso");
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao atualizar categoria");
+                }
             }
+
+
+           
             CarregarTodasCategorias();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex == 0)
+            if (e.RowIndex == 0)
             {
                 MessageBox.Show($"Houver um erro ao clicar 2 vezes sobre o Grid");
             }
@@ -66,9 +87,12 @@ namespace MultApps.Windows
 
             txtId.Text = categoria.Id.ToString();
             txtNome.Text = categoria.Nome;
-            cbStatus.SelectedIndex = (int) categoria.Status;  
+            cbStatus.SelectedIndex = (int)categoria.Status;
             txtCriacao.Text = categoria.DataCriacao.ToString("dd/MM/yyyy HH:mm");
             txtAlteracao.Text = categoria.DataAlteracao.ToString("dd/MM/yyyy HH:mm");
+            
+            button1.Enabled = true;
+            btnSalvar.Text = "Salavar Alteração";
         }
 
         private void CarregarTodasCategorias()
@@ -127,6 +151,28 @@ namespace MultApps.Windows
             txtAlteracao.Text = string.Empty;
             txtCriacao.Text = string.Empty;
             cbStatus.SelectedIndex = -1;
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var categoriaId = int.Parse(txtId.Text);
+
+            var categoriaRepository = new CategoriaRepository();
+            var sucesso = categoriaRepository.DeletarCategoria(categoriaId);
+
+            if (sucesso)
+            {
+                MessageBox.Show("categoria removida com sucesso");
+            }
+
+            else
+            {
+                MessageBox.Show($"Não foi possivel deletar a categoria: {txtNome.Text}");
+            }
+
+            button1.Enabled = false;
+            btnLimpar_Click(sender, e);
         }
     }
 }
