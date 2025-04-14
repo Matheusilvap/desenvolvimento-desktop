@@ -71,6 +71,12 @@
     <Compile Include="FrmCalculadoraIMC.Designer.cs">
       <DependentUpon>FrmCalculadoraIMC.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImcImagem.cs" />
     <Compile Include="principal.cs">
       <SubType>Form</SubType>
@@ -80,16 +86,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
-    <EmbeddedResource Include="FrmAçai.resx">
-      <DependentUpon>FrmAçai.cs</DependentUpon>
-
     <EmbeddedResource Include="FrmAposentadoria.resx">
       <DependentUpon>FrmAposentadoria.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCalculadoraIMC.resx">
       <DependentUpon>FrmCalculadoraIMC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
@@ -137,6 +141,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Morango.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CONTROLLER\MultApps.Controler\MultApps.Controler.csproj">
+      <Project>{94058098-4149-496b-af28-46ae6b7905a6}</Project>
+      <Name>MultApps.Controler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MODEL\MultApps.Models\MultApps.Models.csproj">
+      <Project>{92542632-3107-4ddb-81f6-bdfbd51cb009}</Project>
+      <Name>MultApps.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
