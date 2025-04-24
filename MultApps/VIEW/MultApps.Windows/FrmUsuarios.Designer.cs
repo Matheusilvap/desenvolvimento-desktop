@@ -33,6 +33,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -96,6 +96,7 @@
             this.cmbFiltro.Name = "cmbFiltro";
             this.cmbFiltro.Size = new System.Drawing.Size(204, 28);
             this.cmbFiltro.TabIndex = 17;
+            this.cmbFiltro.SelectedIndexChanged += new System.EventHandler(this.cmbFiltro_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -124,6 +125,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(424, 692);
             this.panel2.TabIndex = 4;
+            // 
+            // txtCpf
+            // 
+            this.txtCpf.Location = new System.Drawing.Point(260, 105);
+            this.txtCpf.Mask = "000.000.000.00";
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(133, 26);
+            this.txtCpf.TabIndex = 2;
             // 
             // button2
             // 
@@ -177,6 +186,7 @@
             // 
             // txtUltimoAcesso
             // 
+            this.txtUltimoAcesso.Enabled = false;
             this.txtUltimoAcesso.Location = new System.Drawing.Point(237, 316);
             this.txtUltimoAcesso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUltimoAcesso.Name = "txtUltimoAcesso";
@@ -194,6 +204,7 @@
             // 
             // txtDataCadastro
             // 
+            this.txtDataCadastro.Enabled = false;
             this.txtDataCadastro.Location = new System.Drawing.Point(24, 316);
             this.txtDataCadastro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDataCadastro.Name = "txtDataCadastro";
@@ -280,13 +291,6 @@
             this.label1.Size = new System.Drawing.Size(240, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cadastro de Usuários";
-            // 
-            // txtCpf
-            // 
-            this.txtCpf.Location = new System.Drawing.Point(260, 105);
-            this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(133, 26);
-            this.txtCpf.TabIndex = 2;
             // 
             // FrmUsuarios
             // 
