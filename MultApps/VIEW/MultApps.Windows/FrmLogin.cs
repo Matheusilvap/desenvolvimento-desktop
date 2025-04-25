@@ -59,7 +59,9 @@ namespace MultApps.Windows
 
             if(senhaConfere)
             {
-                MessageBox.Show("Usuário e senha correto");
+                var formPrincipal = new Principal(usuario);
+                formPrincipal.Show();
+                this.Hide();
             }
 
             else
@@ -67,6 +69,8 @@ namespace MultApps.Windows
                 MessageBox.Show("Usuário e senha Invalido");
             }
         }
+
+      
 
         private void btnSenha_Click(object sender, EventArgs e)
         {
@@ -92,5 +96,7 @@ namespace MultApps.Windows
                 MessageBox.Show("Erro ao atualizae a senha");
             }
         }
+
+
     }
 }
