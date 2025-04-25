@@ -156,7 +156,8 @@ namespace MultApps.Windows
             }
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
             {
@@ -180,11 +181,15 @@ namespace MultApps.Windows
                 return;
             }
             // Preencha os campos de edição com os dados obtidos
-            txtId.Text = usuario.Id.ToString();
             txtNome.Text = usuario.Nome;
-            cmbStatus.SelectedIndex = (int)usuario.Status;
+            txtCpf.Text = usuario.Cpf;
+            txtEmail.Text = usuario.Email;
+            txtSenha.Text = usuario.Senha;
             txtDataCadastro.Text = usuario.DataCriacao.ToString("dd/MM/yyyy HH:mm");
-            txtDataAlteracao.Text = usuario.DataAlteracao.ToString("dd/MM/yyyy HH:mm");
-         }
+            txtUltimoAcesso.Text = usuario.DataUltimoAcesso.ToString("dd/MM/yyyy HH:mm");
+            cmbStatus.SelectedIndex = (int)usuario.Status;
+
+            btnSalvar.Text = "Salvar alterações";
         }
+    }
 }
