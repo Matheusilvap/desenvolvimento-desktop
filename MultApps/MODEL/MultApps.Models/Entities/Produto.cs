@@ -4,7 +4,7 @@ using MultApps.Models.Enums;
 
 namespace MultApps.Models.Entities
 {
-    internal class Produto : EntidadeBase
+    public class Produto : EntidadeBase
     {
         public int CategoriaId { get; set; }
         public string Nome { get; set; }

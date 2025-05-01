@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Dapper;
@@ -86,5 +87,6 @@ namespace MultApps.Models.Repositories
                 return resultado;
             }
         }
+
     }
 }

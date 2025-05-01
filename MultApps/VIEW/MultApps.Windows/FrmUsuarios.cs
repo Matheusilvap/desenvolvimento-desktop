@@ -116,9 +116,9 @@ namespace MultApps.Windows
 
         private void CarregarTodosUsuarios()
         {
-            var usuarioRepository = new UsuarioRepository();
+            var usuariosRepository = new UsuarioRepository();
 
-            var listarUsuario = usuarioRepository.ListarUsuarios();
+            var listarUsuario = usuariosRepository.ListarUsuario();
             dataGridView1.DataSource = listarUsuario;
         }
 
@@ -149,7 +149,7 @@ namespace MultApps.Windows
                 break;
 
                 case 2:
-                    var usuarioInativos = usuarioRepositorio.ListarUsuariosPorStatus(0);
+                    var usuarioInativos =   usuarioRepositorio.ListarUsuariosPorStatus(0);
                     dataGridView1 .DataSource = usuarioInativos;
                     break;
 

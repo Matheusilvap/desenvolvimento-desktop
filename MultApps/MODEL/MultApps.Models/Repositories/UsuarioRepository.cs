@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace MultApps.Models.Repositories
 {
-    public class ProdutoRepository
+    public class UsuarioRepository
     {
         public string ConnectionString = "Server=localhost;Database=multapps_dev; Uid=root;Pwd=root";
 
@@ -44,7 +44,7 @@ namespace MultApps.Models.Repositories
             }
         }
 
-        public DataTable ListarProdutos()
+        public DataTable ListarUsuario()
         {
             using (IDbConnection db = new MySqlConnection(ConnectionString))
             {
@@ -80,7 +80,7 @@ namespace MultApps.Models.Repositories
             }
         }
 
-        public DataTable ListarProdutosPorStatus(int status)
+        public DataTable ListarUsuariosPorStatus(int status)
         {
             using (IDbConnection db = new MySqlConnection(ConnectionString))
             {

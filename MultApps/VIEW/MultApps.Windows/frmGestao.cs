@@ -37,27 +37,27 @@ namespace MultApps.Windows
 
 
                 var produto = new Produto();
-                produto.nome = txtNome.Text;
-                produto.descricao = txtDescricao.Text;
-                produto.imagem = txtEstoque.Text;
-                produto.
+                produto.Nome = txtNome.Text;
+                produto.Descricao = txtDescricao.Text;
+                produto.Imagem = txtEstoque.Text;
+                produto.Preco = decimal.Parse(txtPreco.Text);
                 produto.Status = (StatusEnum)cmbStatus.SelectedIndex;
 
                 //2 Passo criar o objeto de repositório.
-                var usuarioRepository = new UsuarioRepository();
+                var produtoRepository = new ProdutoRepository();
 
                 //3 Passo chamar o método de cadastro.
-                var sucesso = usuarioRepository.CadastrarUsuario(produto);
+                var sucesso = produtoRepository.CadastrarProduto(produto);
 
                 if (sucesso)
                 {
-                    MessageBox.Show($"Usuário {produto.nome} cadastrado com sucesso!");
-                    CarregarTodosUsuarios();
+                    MessageBox.Show($"Usuário {produto.Nome} cadastrado com sucesso!");
+                    CarregarTodosProdutos();
                     LimparCampos();
                 }
                 else
                 {
-                    MessageBox.Show($"Erro ao cadastrar o usuário {produto.nome}");
+                    MessageBox.Show($"Erro ao cadastrar o usuário {produto.Nome}");
                 }
 
             }
@@ -116,7 +116,7 @@ namespace MultApps.Windows
                 return false;
             }
 
-            private void FrmUsuarios_Load(object sender, EventArgs e)
+            private void FrmGestao_Load(object sender, EventArgs e)
             {
                 CarregarTodosProdutos();
             }
@@ -156,8 +156,8 @@ namespace MultApps.Windows
                 var produtoId = (int)row.Cells[0].Value;
 
                 // Use o método ObterCategoriaPorId para buscar os dados da categoria no banco de dados
-                var usuarioRepository = new UsuarioRepository();
-                var usuario = usuarioRepository.ObterUsuarioPorId(produtoId);
+                var produtoRepository = new ProdutoRepository();
+                var produto = produtoRepository.ObterProdutoPorId(produtoId);
 
                 if (produto == null)
                 {
@@ -165,9 +165,9 @@ namespace MultApps.Windows
                     return;
                 }
                 // Preencha os campos de edição com os dados obtidos
-                txtNome.Text = usuario.Nome;
-                txtDescricao.Text = produto.Descricao;
-                txtEstoque.Text = usuario.Email;
+                txtNome.Text = produto.Nome;
+                txtDescricao.Text = produto.De;
+                txtEstoque.Text = produto.Email;
                 txtPreco.Text =produto.Preco;
                 txtImagem.Text produto.Imagem;
                 cmbStatus.SelectedIndex = (int)produto.Status;
@@ -181,7 +181,7 @@ namespace MultApps.Windows
             switch (cmbPreco.SelectedIndex)
             {
                 case 0:
-                    CarregarTodosUsuarios();
+                    CarregarTodosProdutos();
                     break;
 
                 case 1:
@@ -190,7 +190,7 @@ namespace MultApps.Windows
                     break;
 
                 case 2:
-                    var usuarioInativos = produtoRepositorio.ListarProdutosPorStatus(0);
+                    var produtoInativos = produtoRepositorio.ListarProdutosPorStatus(0);
                     dataGridView1.DataSource = produtoInativos;
                     break;
 
