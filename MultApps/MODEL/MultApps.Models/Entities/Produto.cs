@@ -11,7 +11,7 @@ namespace MultApps.Models.Entities
         public string Descricao { get; set; }
         public decimal Preco { get; set; }
         public string Imagem { get; set; }
-        public int Estoque { get; set; }
+        public string Estoque { get; set; }
         public StatusEnum Status { get; set; }
 
     }

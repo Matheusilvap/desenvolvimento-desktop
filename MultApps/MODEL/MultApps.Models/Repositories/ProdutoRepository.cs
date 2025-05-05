@@ -81,12 +81,49 @@ namespace MultApps.Models.Repositories
         {
             using (IDbConnection db = new MySqlConnection(ConnectionString))
             {
-                var comandoSql = @"SELECT id, nome, data_criacao, data_alteracao, status
+                var comandoSql = @"SELECT id,  nome, data_criacao, data_alteracao, status
                                    FROM produto WHERE id = @Id";
                 var parametros = new DynamicParameters();
                 parametros.Add("@Id", id);
                 var resultado = db.Query<Produto>(comandoSql, parametros).FirstOrDefault();
                 return resultado;
+            }
+        }
+        public DataTable ListarProdutos()
+        {
+            using (IDbConnection db = new MySqlConnection(ConnectionString))
+            {
+                var comandoSql = @"SELECT id AS Id, 
+                                          categoria_id AS CategoriaId,
+                                          nome AS Nome,
+                                          preco AS Preco,
+                                          quantidade_estoque AS Estoque,
+                                          data_cadastro AS DataCadastro,
+                                          data_alteracao AS DataAlteracao,
+                                   FROM produto";
+                var produtos = db.Query<Produto>(comandoSql).ToList();
+       
+                var dataTable = new DataTable();
+                dataTable.Columns.Add("Id", typeof(int));
+                dataTable.Columns.Add("CategoriaId", typeof(int));
+                dataTable.Columns.Add("Nome", typeof(string));
+                dataTable.Columns.Add("Preco", typeof(decimal));
+                dataTable.Columns.Add("Estoque", typeof(int));
+                dataTable.Columns.Add("Descricao", typeof(string));
+                dataTable.Columns.Add("Data Cadastro", typeof(DateTime));
+                dataTable.Columns.Add("Data Alteracao", typeof(DateTime));
+                foreach (var produto in produtos)
+                {
+                    dataTable.Rows.Add(produto.Id,
+                        produto.CategoriaId,
+                        produto.Nome,
+                        produto.Preco,
+                        produto.Estoque,
+                        produto.Descricao,
+                         produto.DataCriacao,
+                         produto.DataAlteracao);
+                }
+                return dataTable;
             }
         }
 
@@ -95,31 +132,39 @@ namespace MultApps.Models.Repositories
             using (IDbConnection db = new MySqlConnection(ConnectionString))
             {
                 var comandoSql = @"SELECT id AS Id, 
-                                          nome AS Nome, 
+                                          categoria_id AS CategoriaId,
+                                          nome AS Nome,
+                                          preco AS Preco,
+                                          quantidade_estoque AS Estoque,
                                           data_cadastro AS DataCadastro,
                                           data_alteracao AS DataAlteracao,
-                                          data_ultimo_acesso AS DataUltimoAcesso
-                                   FROM usuario
+                                   FROM produto
                                    WHERE status = @Status";
 
                 var parametros = new DynamicParameters();
                 parametros.Add("@Status", status);
 
-                var usuarios = db.Query<Usuario>(comandoSql, parametros).ToList();
+                var produtos = db.Query<Produto>(comandoSql, parametros).ToList();
                 // Converte a lista de usuários para um DataTable
                 var dataTable = new DataTable();
                 dataTable.Columns.Add("Id", typeof(int));
+                dataTable.Columns.Add("CategoriaId", typeof(int));
                 dataTable.Columns.Add("Nome", typeof(string));
+                dataTable.Columns.Add("Preco", typeof(decimal));
+                dataTable.Columns.Add("Estoque", typeof(int));
+                dataTable.Columns.Add("Descricao", typeof(string));
                 dataTable.Columns.Add("Data Cadastro", typeof(DateTime));
                 dataTable.Columns.Add("Data Alteracao", typeof(DateTime));
-                dataTable.Columns.Add("Data Ultimo Acesso", typeof(DateTime));
-                foreach (var usuario in usuarios)
+                foreach (var produto in produtos)
                 {
-                    dataTable.Rows.Add(usuario.Id,
-                        usuario.Nome,
-                         usuario.DataCriacao,
-                         usuario.DataAlteracao,
-                        usuario.DataUltimoAcesso);
+                    dataTable.Rows.Add(produto.Id,
+                       produto.CategoriaId,
+                       produto.Nome,
+                       produto.Preco,
+                       produto.Estoque,
+                       produto.Descricao,
+                        produto.DataCriacao,
+                        produto.DataAlteracao);
                 }
                 return dataTable;
             }

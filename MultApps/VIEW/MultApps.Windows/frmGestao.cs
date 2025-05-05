@@ -161,15 +161,14 @@ namespace MultApps.Windows
 
                 if (produto == null)
                 {
-                    MessageBox.Show($"Categoria: #{produtoId} não encontrada");
+                    MessageBox.Show($"Produto: #{produtoId} não encontrada");
                     return;
                 }
                 // Preencha os campos de edição com os dados obtidos
                 txtNome.Text = produto.Nome;
-                txtDescricao.Text = produto.De;
-                txtEstoque.Text = produto.Email;
-                txtPreco.Text =produto.Preco;
-                txtImagem.Text produto.Imagem;
+                txtDescricao.Text = produto.Descricao;
+                txtEstoque.Text = produto.Estoque;
+
                 cmbStatus.SelectedIndex = (int)produto.Status;
 
                 btnSalvar.Text = "Salvar alterações";
