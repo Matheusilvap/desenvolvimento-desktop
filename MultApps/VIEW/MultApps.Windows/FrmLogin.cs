@@ -93,7 +93,7 @@ namespace MultApps.Windows
             }
             else
             {
-                MessageBox.Show("Erro ao atualizae a senha");
+                MessageBox.Show("Erro ao atualiza a senha");
             }
         }
 

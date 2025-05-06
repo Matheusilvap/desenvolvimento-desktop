@@ -13,6 +13,11 @@ namespace MultApps.Models.Repositories
     {
         public string ConnectionString = "Server=localhost;Database=multapps_dev; Uid=root;Pwd=root";
 
+        public bool AtualizarSenha(string novaSenha, string text)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool CadastrarUsuario(Usuario usuario)
         {
             using (IDbConnection db = new MySqlConnection(ConnectionString))
@@ -119,6 +124,11 @@ namespace MultApps.Models.Repositories
                 }
                 return dataTable;
             }
+        }
+
+        public Usuario ObterUsuarioPorEmail(string text)
+        {
+            throw new NotImplementedException();
         }
 
         public Usuario ObterUsuarioPorId(int id)
